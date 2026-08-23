@@ -1,0 +1,581 @@
+:root {
+  --pink-light: #ffe3ef;
+  --pink-mid: #ffb6d9;
+  --pink-dark: #ff8fc7;
+  --cream: #fff8f0;
+  --text-dark: #6b4a5a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Baloo 2', 'Comic Sans MS', sans-serif;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('../assets/main-menu/bg2.png');
+}
+
+/* Row layout: left banner, site frame, right banner */
+.stage {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Main game box */
+.site-frame {
+  position: relative;
+  width: 500px;
+  height: 600px;
+  max-width: 95vw;
+  max-height: 90vh;
+  background: rgb(255, 229, 238);
+  border: 2.5px solid rgb(167, 124, 55);
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* Menu page: full height */
+.site-frame.tall {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+/* Sweet Catch page: wider play area */
+.site-frame.wide {
+  width: 800px;
+}
+
+/* Buttons */
+.menu-btn {
+  text-decoration: none;
+  background: var(--pink-mid);
+  color: rgb(121, 62, 22);
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 5px 13px;
+  border: 2px solid rgb(149, 113, 71);
+  border-radius: 70px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+  background: rgb(255, 192, 220);
+}
+
+.menu-btn:active {
+  transform: scale(0.96);
+}
+
+.menu-btn.secondary {
+  background: var(--pink-mid);
+  border: 2px solid rgb(149, 113, 71);
+}
+
+.menu-btn.secondary:hover {
+  background: rgb(255, 192, 220);
+}
+
+/* Mute button, appears on every page */
+.global-mute-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 50;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: solid 2px rgb(49, 30, 9);
+  background: rgb(148, 123, 143);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+.global-mute-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Main menu layout */
+.menu-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 24px;
+}
+
+.logo {
+  max-width: 500px;
+  width: 100%;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Guide modal */
+.guide-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 74, 90, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+}
+
+.guide-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 92%;
+  max-height: 92%;
+}
+
+.guide-img {
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 30px;
+  object-fit: contain;
+}
+
+.guide-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Round arrow buttons */
+.guide-arrow-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--pink-mid);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.guide-arrow-btn:hover {
+  background: var(--pink-dark);
+  transform: scale(1.08);
+}
+
+.guide-arrow-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid white;
+  transform: translate(-38%, -50%);
+}
+
+.guide-prev-btn::after {
+  border-left: none;
+  border-right: 13px solid white;
+  transform: translate(-62%, -50%);
+}
+
+/* Sweet Catch game screen */
+.game-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url('../assets/main-menu/bg5.jpg') center/cover;
+}
+
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.hud-coins {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.coin-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.hud-lives {
+  display: flex;
+  gap: 6px;
+}
+
+.hud-lives img {
+  width: 36px;
+  height: 36px;
+}
+
+.combo-text {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.combo-text.show {
+  opacity: 1;
+}
+
+.basket {
+  position: absolute;
+  bottom: 16px;
+  width: 90px;
+  height: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.fall-zone {
+  position: absolute;
+  inset: 0;
+}
+
+.falling-item {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: -70px;
+}
+
+/* Pause menu */
+.pause-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 74, 90, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+}
+
+.pause-box {
+  background: var(--cream);
+  padding: 28px 36px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pause-box h2 {
+  color: rgba(107, 74, 90, 0.75);
+  margin-bottom: 8px;
+}
+
+/* Game over screen */
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 74, 90, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.game-over-box {
+  background: var(--cream);
+  padding: 32px 40px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.final-coins {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.final-coins .coin-icon {
+  width: 70px;
+  height: 70px;
+}
+
+/* Cake Decorator layout */
+.decorate-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.decorate-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+}
+
+.decorate-title {
+  color: var(--text-dark);
+  font-size: 2rem;
+}
+
+.wallet-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 27px;
+}
+
+.wallet-display .coin-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.decorate-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.palette {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  width: 95px;
+}
+
+.palette h3 {
+  color: var(--pink-dark);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.icing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icing-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.icing-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.icing-slot:hover .icing-swatch {
+  transform: scale(1.1);
+}
+
+.icing-swatch.selected {
+  border-color: var(--pink-dark);
+}
+
+.icing-swatch.locked {
+  filter: grayscale(70%) brightness(0.85);
+}
+
+.icing-price {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+}
+
+.cake-stage {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  background: white;
+  border-radius: 20px;
+}
+
+.cake-base,
+.cake-icing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.cake-icing {
+  transform: translate(40px, -70px);
+  width: 75%;
+}
+
+.decorate-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Page transition curtain */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  background: var(--pink-mid);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes curtainSlideOut {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes curtainSlideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+.page-curtain.curtain-enter {
+  animation: curtainSlideOut 0.5s ease forwards;
+}
+
+.page-curtain.curtain-leave {
+  animation: curtainSlideIn 0.5s ease forwards;
+}
+
+/* Horizontal scrolling banner strip */
+.marquee-banner {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scrollLeft 5s linear infinite;
+}
+
+.marquee-track img {
+  height: 50px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.side-stack-left {
+  left: 20px;
+}
+
+.side-stack-right {
+  right: 20px;
+}
+
+.side-stack img {
+  width: 250px;
+  height: auto;
+}
+
+/* Vertical scrolling banner strip */
+.vert-marquee-wrap {
+  position: relative;
+  width: 200px;
+  background: rgba(255, 255, 255, 0);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.vert-marquee-track {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  animation: scrollUp 7s linear infinite;
+}
+
+.vert-marquee-track img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}

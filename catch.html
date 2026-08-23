@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sweets basket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top scrolling banner -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <img src="./assets/banners/banner(2).jpg" alt="">
+      <img src="./assets/banners/banner(3).jpg" alt="">
+      <img src="./assets/banners/banner(4).jpg" alt="">
+      <img src="./assets/banners/banner(5).jpg" alt="">
+      <img src="./assets/banners/banner(2).jpg" alt="">
+      <img src="./assets/banners/banner(3).jpg" alt="">
+      <img src="./assets/banners/banner(4).jpg" alt="">
+      <img src="./assets/banners/banner(5).jpg" alt="">
+    </div>
+  </div>
+
+  <div class="site-frame wide">
+    <div class="game-screen" id="game-screen">
+
+      <!-- HUD -->
+      <div class="hud">
+        <div class="hud-coins">
+          <img src="assets/sweet-catch/coin.png" alt="coins" class="coin-icon">
+          <span id="coin-display">0</span>
+        </div>
+        <div class="hud-lives" id="lives-display"></div>
+      </div>
+
+      <div class="combo-text" id="combo-text"></div>
+
+      <img src="assets/sweet-catch/basket.png" alt="basket" class="basket" id="basket">
+
+      <div class="fall-zone" id="fall-zone"></div>
+
+      <!-- Pause menu -->
+      <div class="pause-overlay hidden" id="pause-overlay">
+        <div class="pause-box">
+          <h2>Paused</h2>
+          <button id="resume-btn" class="menu-btn">Resume</button>
+          <button id="restart-pause-btn" class="menu-btn">Restart</button>
+          <a href="index.html" class="menu-btn secondary" data-transition="left">Home</a>
+        </div>
+      </div>
+
+      <!-- Game over screen -->
+      <div class="game-over-overlay hidden" id="game-over-overlay">
+        <div class="game-over-box">
+          <h2>Game Over!</h2>
+          <div class="final-coins">
+            <img src="assets/sweet-catch/coin.png" alt="coins" class="coin-icon">
+            <span id="final-score">0</span>
+          </div>
+          <button id="restart-btn" class="menu-btn">Play Again</button>
+          <a href="index.html" class="menu-btn secondary" data-transition="left">Back to Menu</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/sound.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/catch.js"></script>
+</body>
+</html>

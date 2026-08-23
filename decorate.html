@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Decorator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top scrolling banner -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <img src="./assets/banners/banner(2).jpg" alt="">
+      <img src="./assets/banners/banner(3).jpg" alt="">
+      <img src="./assets/banners/banner(4).jpg" alt="">
+      <img src="./assets/banners/banner(5).jpg" alt="">
+      <img src="./assets/banners/banner(2).jpg" alt="">
+      <img src="./assets/banners/banner(3).jpg" alt="">
+      <img src="./assets/banners/banner(4).jpg" alt="">
+      <img src="./assets/banners/banner(5).jpg" alt="">
+    </div>
+  </div>
+
+  <div class="site-frame">
+    <div class="decorate-screen">
+
+      <!-- Header: title + wallet -->
+      <div class="decorate-header">
+        <h1 class="decorate-title">Cake Decorator</h1>
+        <div class="wallet-display">
+          <img src="assets/sweet-catch/coin.png" alt="coins" class="coin-icon">
+          <span id="wallet-display">0</span>
+        </div>
+      </div>
+
+      <div class="decorate-layout">
+
+        <!-- Icing selector -->
+        <div class="palette">
+          <h3>Icing</h3>
+          <div class="icing-options" id="icing-options"></div>
+        </div>
+
+        <!-- Cake preview -->
+        <div class="cake-stage" id="cake-stage">
+          <div id="cake-icing-container" class="cake-icing-container">
+            <img src="assets/cake-decorator/BaseCake.png" class="cake-base" alt="cake base">
+            <img src="assets/cake-decorator/icing3.png" class="cake-icing hidden" id="cake-icing-3" alt="">
+            <img src="assets/cake-decorator/icing2.png" class="cake-icing hidden" id="cake-icing-2" alt="">
+            <img src="assets/cake-decorator/icing1.png" class="cake-icing hidden" id="cake-icing-1" alt="">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="decorate-actions">
+        <a href="index.html" class="menu-btn secondary" data-transition="left">Back to Menu</a>
+      </div>
+
+      <p class="save-msg hidden" id="buy-msg"></p>
+    </div>
+  </div>
+
+  <script src="js/sound.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/decorate.js"></script>
+</body>
+</html>
